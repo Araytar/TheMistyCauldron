@@ -8,10 +8,12 @@ public class Config {
     ArrayList<Material> heatedMaterials = new ArrayList<>();
     ArrayList<Material> soulHeatedMaterials = new ArrayList<>();
 
+    //cauldron setup
     String heatLevelKey;
     String coldCauldronValue;
     String heatedCauldronValue;
     String soulHeatedCauldronValue;
+    String cUUIDIdentifier;
 
     public Config() {
         //heated material config here
@@ -24,11 +26,12 @@ public class Config {
         soulHeatedMaterials.add(Material.SOUL_FIRE);
         soulHeatedMaterials.add(Material.SOUL_CAMPFIRE);
 
-        //heatLevel
+        //cauldron setup
         heatLevelKey = "heatLevel";
         coldCauldronValue = "0";
         heatedCauldronValue = "1";
         soulHeatedCauldronValue = "2";
+        cUUIDIdentifier = "cauldronUUID";
     }
 
     public ArrayList<Material> getHeatedMaterials() {
@@ -53,5 +56,9 @@ public class Config {
 
     public String getSoulHeatedCauldronValue() {
         return soulHeatedCauldronValue;
+    }
+
+    public String getCUUIDIdentifier() {
+        return cUUIDIdentifier;
     }
 }

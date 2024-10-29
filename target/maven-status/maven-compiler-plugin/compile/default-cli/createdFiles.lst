@@ -1,0 +1,12 @@
+net\araytar\mistycauldron\Mistycauldron.class
+net\araytar\mistycauldron\framework\registers\PotionRegister.class
+net\araytar\mistycauldron\framework\helper\TileEntityStorageHelper.class
+net\araytar\mistycauldron\framework\item\Potion.class
+net\araytar\mistycauldron\framework\crafting\ExampleRecipe.class
+net\araytar\mistycauldron\Config.class
+net\araytar\mistycauldron\framework\blocks\listeners\cauldronPlacedLogic.class
+net\araytar\mistycauldron\framework\Exceptions.class
+net\araytar\mistycauldron\framework\item\ExamplePotion.class
+net\araytar\mistycauldron\framework\item\listeners\PotionConsumedListener.class
+net\araytar\mistycauldron\framework\crafting\CauldronRecipe.class
+net\araytar\mistycauldron\framework\registers\CauldronRecipeRegister.class

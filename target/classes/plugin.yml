@@ -1,0 +1,5 @@
+name: mistycaudron
+version: '0.0-Early'
+main: net.araytar.mistycauldron.Mistycauldron
+api-version: '1.20'
+authors: [ Araytar ]

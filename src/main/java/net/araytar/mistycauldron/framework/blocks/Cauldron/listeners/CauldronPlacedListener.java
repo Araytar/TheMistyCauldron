@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework.blocks.listeners;
+package net.araytar.mistycauldron.framework.blocks.Cauldron.listeners;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -12,31 +12,23 @@ import org.bukkit.plugin.java.JavaPlugin;
 import net.araytar.mistycauldron.framework.helper.TileEntityStorageHelper;
 import net.araytar.mistycauldron.Config;
 
-public class cauldronPlacedLogic implements Listener {
+public class CauldronPlacedListener implements Listener {
     private final Config config =  new Config();
     private final JavaPlugin pluginInstance;
 
     //Constructor
-    public cauldronPlacedLogic(JavaPlugin pluginInstance) {
+    public CauldronPlacedListener(JavaPlugin pluginInstance) {
         this.pluginInstance = pluginInstance;
-
     }
 
     //edit the Config.java file to change the blocks used to heat cauldrons.
     @EventHandler
     public void onCauldronPlaced(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
+        Block heatSource = event.getBlockPlaced().getLocation().clone().subtract(0, -1, 0).clone().getBlock();
         World world = block.getWorld();
+        if (config.getHeatedMaterials().contains(heatSource.getType())) {
 
-        if (block.getType() == Material.CAULDRON) {
-            Location location = block.getLocation().clone().subtract(0,1,0);
-            if (config.getHeatedMaterials().contains(world.getBlockAt(location).getType())) {
-                TileEntityStorageHelper.setTileBlockData(block, config.getHeatLevelKey(), config.getHeatedCauldronValue(), this.pluginInstance);
-            } else if (config.getSoulHeatedMaterials().contains(world.getBlockAt(location).getType())){
-                TileEntityStorageHelper.setTileBlockData(block, config.getHeatLevelKey(), config.getSoulHeatedCauldronValue(), this.pluginInstance);
-            } else {
-                TileEntityStorageHelper.setTileBlockData(block, config.getHeatLevelKey(), config.getColdCauldronValue(), this.pluginInstance);
-            }
         }
     }
 

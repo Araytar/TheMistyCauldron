@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import java.util.ArrayList;
 
 public class Config {
+    //I know this looks like shit, and probably is... but it works.
     ArrayList<Material> heatedMaterials = new ArrayList<>();
     ArrayList<Material> soulHeatedMaterials = new ArrayList<>();
 

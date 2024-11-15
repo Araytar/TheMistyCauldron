@@ -3,27 +3,25 @@ package net.araytar.mistycauldron.framework.blocks.Cauldron;
 import net.araytar.mistycauldron.Mistycauldron;
 import org.bukkit.Location;
 
+//Maybe Change this up to an abstract class? not sure yet because it gets created dynamically by the plugin without user input
 public class Cauldron {
     protected String cauldronId;
     protected Location cauldronLocation;
     protected String heatLevel;
 
-    public Cauldron setId(String cauldronId) {
+    public void setId(String cauldronId) {
         this.cauldronId = cauldronId;
-        return this;
     }
 
-    public Cauldron setLocation(Location location) {
+    public void setLocation(Location location) {
         this.cauldronLocation = location;
-        return this;
     }
 
-    public Cauldron setHeatLevel(String heatLevel) {
+    public void setHeatLevel(String heatLevel) {
         this.heatLevel = heatLevel;
-        return this;
     }
 
-    public Cauldron build() {
-        Mistycauldron.cauldronRegister.registerCauldron();
+    public void build() {
+        Mistycauldron.cauldronRegister.register(this.cauldronId, this);
     }
 }

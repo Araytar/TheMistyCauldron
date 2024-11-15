@@ -1,10 +1,13 @@
 package net.araytar.mistycauldron;
 
+import net.araytar.mistycauldron.framework.blocks.Cauldron.Cauldron;
 import net.araytar.mistycauldron.framework.blocks.Cauldron.listeners.CauldronPlacedListener;
+import net.araytar.mistycauldron.framework.blocks.Cauldron.listeners.HeatSourcePlacedListener;
+import net.araytar.mistycauldron.framework.crafting.CauldronRecipe;
+import net.araytar.mistycauldron.framework.item.Potion;
 import net.araytar.mistycauldron.framework.item.listeners.PotionConsumedListener;
-import net.araytar.mistycauldron.framework.registers.CauldronRecipeRegister;
-import net.araytar.mistycauldron.framework.registers.CauldronRegister;
-import net.araytar.mistycauldron.framework.registers.PotionRegister;
+import net.araytar.mistycauldron.framework.registers.ComponentRegister;
+
 import java.util.concurrent.ExecutorService;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.util.concurrent.Executors;
@@ -13,17 +16,18 @@ import java.util.concurrent.TimeUnit;
 
 public final class Mistycauldron extends JavaPlugin {
     private ExecutorService executor;
-    public static PotionRegister potionRegister = new PotionRegister();
-    public static CauldronRecipeRegister cauldronRecipeRegister = new CauldronRecipeRegister();
-    public static CauldronRegister cauldronRegister = new CauldronRegister();
+    public static ComponentRegister<Potion> potionRegister = new ComponentRegister<>();
+    public static ComponentRegister<CauldronRecipe> cauldronRecipeRegister = new ComponentRegister<>();
+    public static ComponentRegister<Cauldron> cauldronRegister = new ComponentRegister<>();
 
     @Override
     public void onEnable() {
         executor = Executors.newCachedThreadPool();
 
         //event register here
-        getServer().getPluginManager().registerEvents(new CauldronPlacedListener(this), this);
+        getServer().getPluginManager().registerEvents(new CauldronPlacedListener(), this);
         getServer().getPluginManager().registerEvents(new PotionConsumedListener(this), this);
+        getServer().getPluginManager().registerEvents(new HeatSourcePlacedListener(), this);
     }
 
     @Override

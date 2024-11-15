@@ -30,7 +30,7 @@ public abstract class Potion {
 
     public void build() {
         //this right here is the way2go.
-        Mistycauldron.potionRegister.registerItem(identifier, this);
+        Mistycauldron.potionRegister.register(identifier, this);
     }
 
     public void onConsumed(PlayerItemConsumeEvent event) {}

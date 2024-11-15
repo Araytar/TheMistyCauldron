@@ -26,13 +26,15 @@ public class PotionConsumedListener implements Listener {
     @EventHandler
     public void onPlayerItemConsumeEvent(PlayerItemConsumeEvent event) throws Exception {
         Player player = event.getPlayer();
-        //NEEDS to stay here!
         if (!(event.getItem().hasItemMeta()) || !(event.getItem().getItemMeta() instanceof PotionMeta)) {return;}
+
         ItemMeta itemMeta = event.getItem().getItemMeta();
         NamespacedKey key = new NamespacedKey(pluginInstance, "tmc_identifier");
         if (itemMeta == null || !(itemMeta.getPersistentDataContainer().has(key, PersistentDataType.STRING))) {return;}
+
         String identifier = itemMeta.getPersistentDataContainer().get(key, PersistentDataType.STRING);
         Potion potion = Mistycauldron.potionRegister.get(identifier);
+
         if (potion == null) {Exceptions.TMCInotFound(identifier);}
         potion.onConsumed(event);
     }

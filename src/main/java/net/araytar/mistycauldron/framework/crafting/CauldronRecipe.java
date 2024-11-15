@@ -41,8 +41,4 @@ public abstract class CauldronRecipe {
         if (percent < 0 || percent > 100) {Exceptions.notAPercentNumber();}
         this.accuracy = percent;
     }
-
-    public void build() {
-        Mistycauldron.cauldronRecipeRegister.registerRecipe(identifier, this);
-    }
 }

@@ -1,7 +1,7 @@
 package net.araytar.mistycauldron.framework.blocks.Cauldron.listeners;
 
 import net.araytar.mistycauldron.Config;
-import net.araytar.mistycauldron.framework.helper.TileEntityStorageHelper;
+import net.araytar.mistycauldron.framework.blocks.Cauldron.Cauldron;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -16,22 +16,26 @@ public class HeatSourcePlacedListener implements Listener {
     @EventHandler
     public void onHeatSourcePlaced(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
+        World world = block.getWorld();
+        Location cauldronLocation = block.getLocation().clone().add(0,1,0);
+
+        if (world.getBlockAt(cauldronLocation).getType() != Material.CAULDRON)  {
+            return;
+        }
+
+        Cauldron cauldron = new Cauldron();
+        cauldron.setId(cauldronLocation.toString());
+        cauldron.setLocation(cauldronLocation);
 
         if (config.getHeatedMaterials().contains(block.getType())) {
-            World world = block.getWorld();
-            Location location = block.getLocation().clone().add(0,1,0);
-            if (world.getBlockAt(location).getType() == Material.CAULDRON) {
-                Block cauldronBlock = world.getBlockAt(location);
-                TileEntityStorageHelper.setTileBlockData(cauldronBlock, config.getHeatLevelKey(), config.getHeatLevelKey(), this.pluginInstance);
-            }
-
+            cauldron.setHeatLevel(config.getHeatedCauldronValue());
+            cauldron.build();
         } else if (config.getSoulHeatedMaterials().contains(block.getType())) {
-            World world = block.getWorld();
-            Location location = block.getLocation().clone().add(0,1,0);
-            if (world.getBlockAt(location).getType() == Material.CAULDRON) {
-                Block caudronBlock = world.getBlockAt(location);
-                TileEntityStorageHelper.setTileBlockData(caudronBlock, config.getHeatLevelKey(), config.getSoulHeatedCauldronValue(), this.pluginInstance);
-            }
+            cauldron.setHeatLevel(config.getSoulHeatedCauldronValue());
+            cauldron.build();
+        } else {
+            cauldron.setHeatLevel(config.getColdCauldronValue());
+            cauldron.build();
         }
     }
 }

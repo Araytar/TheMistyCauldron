@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public final class Mistycauldron extends JavaPlugin {
     private ExecutorService executor;
+
+    //Registers
     public static ComponentRegister<Potion> potionRegister = new ComponentRegister<>();
     public static ComponentRegister<CauldronRecipe> cauldronRecipeRegister = new ComponentRegister<>();
     public static ComponentRegister<Cauldron> cauldronRegister = new ComponentRegister<>();
@@ -24,10 +26,12 @@ public final class Mistycauldron extends JavaPlugin {
     public void onEnable() {
         executor = Executors.newCachedThreadPool();
 
-        //event register here
+        //Cauldron listeners
         getServer().getPluginManager().registerEvents(new CauldronPlacedListener(), this);
-        getServer().getPluginManager().registerEvents(new PotionConsumedListener(this), this);
         getServer().getPluginManager().registerEvents(new HeatSourcePlacedListener(), this);
+
+        //Item listeners
+        getServer().getPluginManager().registerEvents(new PotionConsumedListener(this), this);
     }
 
     @Override

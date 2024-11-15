@@ -1,6 +1,5 @@
 package net.araytar.mistycauldron.framework.crafting;
 
-import net.araytar.mistycauldron.Mistycauldron;
 import net.araytar.mistycauldron.framework.Exceptions;
 import org.bukkit.Color;
 import org.bukkit.inventory.ItemStack;
@@ -9,8 +8,8 @@ import java.util.List;
 
 public abstract class CauldronRecipe {
     //default values
-    protected List<ItemStack> ingredients = new ArrayList<ItemStack>();
-    protected List<ItemStack> results = new ArrayList<ItemStack>();
+    protected List<ItemStack> ingredients = new ArrayList<>();
+    protected List<ItemStack> results = new ArrayList<>();
     protected int brewingTicks = 100;
     protected int accuracy = 50;
     protected boolean dynamicEffects = true;

@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework.crafting;
+package net.araytar.mistycauldron.framework.crafting.cauldron;
 
 import net.araytar.mistycauldron.framework.Exceptions;
 import org.bukkit.Color;
@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CauldronRecipe {
+public class CauldronRecipe {
     //default values
     protected List<ItemStack> ingredients = new ArrayList<>();
     protected List<ItemStack> results = new ArrayList<>();

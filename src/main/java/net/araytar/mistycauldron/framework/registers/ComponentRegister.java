@@ -32,4 +32,5 @@ public class ComponentRegister<T> {
     public List<T> getAll() {
         return new ArrayList<T>(cauldronMap.values());
     }
+
 }

@@ -1,7 +1,7 @@
-package net.araytar.mistycauldron.framework.blocks.Cauldron.listeners;
+package net.araytar.mistycauldron.framework.blocks.cauldron.listeners;
 
 import net.araytar.mistycauldron.Config;
-import net.araytar.mistycauldron.framework.blocks.Cauldron.Cauldron;
+import net.araytar.mistycauldron.framework.blocks.cauldron.Cauldron;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;

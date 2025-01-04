@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework.crafting;
+package net.araytar.mistycauldron.framework.crafting.cauldron;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

@@ -1,14 +1,12 @@
-package net.araytar.mistycauldron.framework.blocks.Cauldron.listeners;
+package net.araytar.mistycauldron.framework.blocks.cauldron.listeners;
 
-import net.araytar.mistycauldron.framework.blocks.Cauldron.Cauldron;
-import org.bukkit.Location;
+import net.araytar.mistycauldron.framework.blocks.cauldron.Cauldron;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import net.araytar.mistycauldron.Config;
 

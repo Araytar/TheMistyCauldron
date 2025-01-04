@@ -1,9 +1,9 @@
 package net.araytar.mistycauldron;
 
-import net.araytar.mistycauldron.framework.blocks.Cauldron.Cauldron;
-import net.araytar.mistycauldron.framework.blocks.Cauldron.listeners.CauldronPlacedListener;
-import net.araytar.mistycauldron.framework.blocks.Cauldron.listeners.HeatSourcePlacedListener;
-import net.araytar.mistycauldron.framework.crafting.CauldronRecipe;
+import net.araytar.mistycauldron.framework.blocks.cauldron.Cauldron;
+import net.araytar.mistycauldron.framework.blocks.cauldron.listeners.CauldronPlacedListener;
+import net.araytar.mistycauldron.framework.blocks.cauldron.listeners.HeatSourcePlacedListener;
+import net.araytar.mistycauldron.framework.crafting.cauldron.CauldronRecipe;
 import net.araytar.mistycauldron.framework.item.Potion;
 import net.araytar.mistycauldron.framework.item.listeners.PotionConsumedListener;
 import net.araytar.mistycauldron.framework.registers.ComponentRegister;

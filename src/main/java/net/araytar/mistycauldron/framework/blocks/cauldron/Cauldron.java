@@ -1,4 +1,4 @@
-package net.araytar.mistycauldron.framework.blocks.Cauldron;
+package net.araytar.mistycauldron.framework.blocks.cauldron;
 
 import net.araytar.mistycauldron.Mistycauldron;
 import org.bukkit.Location;
